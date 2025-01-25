@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 34 33% 98%;
+    --foreground: 20 14% 4%;
+    --card: 34 33% 98%;
+    --card-foreground: 20 14% 4%;
+    --popover: 34 33% 98%;
+    --popover-foreground: 20 14% 4%;
+    --primary: 158 24% 23%;
+    --primary-foreground: 34 33% 98%;
+    --secondary: 34 38% 48%;
+    --secondary-foreground: 34 33% 98%;
+    --muted: 34 33% 96%;
+    --muted-foreground: 20 14% 40%;
+    --accent: 34 38% 48%;
+    --accent-foreground: 34 33% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 34 33% 98%;
+    --border: 20 14% 92%;
+    --input: 20 14% 92%;
+    --ring: 158 24% 23%;
+    --radius: 0.75rem;
+  }
+ 
+  .dark {
+    --background: 20 14% 4%;
+    --foreground: 34 33% 98%;
+    --card: 20 14% 4%;
+    --card-foreground: 34 33% 98%;
+    --popover: 20 14% 4%;
+    --popover-foreground: 34 33% 98%;
+    --primary: 158 24% 23%;
+    --primary-foreground: 34 33% 98%;
+    --secondary: 34 38% 48%;
+    --secondary-foreground: 34 33% 98%;
+    --muted: 20 14% 14%;
+    --muted-foreground: 34 33% 64%;
+    --accent: 34 38% 48%;
+    --accent-foreground: 34 33% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 34 33% 98%;
+    --border: 20 14% 14%;
+    --input: 20 14% 14%;
+    --ring: 158 24% 23%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.hero-section {
+  @apply relative h-screen flex items-center justify-center overflow-hidden;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+}
+
+.hero-content {
+  @apply z-10 text-center text-white;
+}
+
+.section-title {
+  @apply text-4xl md:text-6xl font-bold mb-6 tracking-tight;
+}
+
+.section-subtitle {
+  @apply text-lg md:text-xl mb-8 max-w-2xl mx-auto;
+}
+
+.gallery-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6;
+}
+
+.dish-card {
+  @apply relative overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105;
+}
+
+.timeline-container {
+  @apply relative py-16 px-4;
+}
+
+.timeline-item {
+  @apply flex gap-8 items-start mb-12 opacity-0 transform translate-y-4 transition-all duration-500;
+}
+
+.timeline-item.visible {
+  @apply opacity-100 translate-y-0;
+}
+
+.recipe-card {
+  @apply bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl;
+}
+
+.contact-section {
+  @apply bg-muted py-16;
+}
+
+.map-container {
+  @apply h-[400px] rounded-lg overflow-hidden;
+}
+
+.nav-link {
+  @apply relative text-foreground hover:text-primary transition-colors duration-200;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 transition-transform duration-300 origin-left;
+}
+
+.nav-link:hover::after {
+  @apply scale-x-100;
+}
